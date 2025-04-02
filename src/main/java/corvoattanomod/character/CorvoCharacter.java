@@ -28,7 +28,7 @@ import java.util.ArrayList;
 import static corvoattanomod.CorvoAttanoMod.characterPath;
 import static corvoattanomod.CorvoAttanoMod.makeID;
 
-public class MyCharacter extends CustomPlayer {
+public class CorvoCharacter extends CustomPlayer {
     //Stats
     public static final int ENERGY_PER_TURN = 3;
     public static final int MAX_HP = 73;
@@ -79,7 +79,7 @@ public class MyCharacter extends CustomPlayer {
         }
 
         public static void registerCharacter() {
-            BaseMod.addCharacter(new MyCharacter(), CHAR_SELECT_BUTTON, CHAR_SELECT_PORTRAIT);
+            BaseMod.addCharacter(new CorvoCharacter(), CHAR_SELECT_BUTTON, CHAR_SELECT_PORTRAIT);
         }
     }
 
@@ -116,7 +116,7 @@ public class MyCharacter extends CustomPlayer {
 
     //Actual character class code below this point
 
-    public MyCharacter() {
+    public CorvoCharacter() {
         super(getNames()[0], Meta.Corvo_Character,
                 new CustomEnergyOrb(orbTextures, characterPath("energyorb/vfx.png"), layerSpeeds), //Energy Orb
                 new SpriterAnimation(characterPath("animation/default.scml"))); //Animation
@@ -256,6 +256,6 @@ public class MyCharacter extends CustomPlayer {
     @Override
     public AbstractPlayer newInstance() {
         //Makes a new instance of your character class.
-        return new MyCharacter();
+        return new CorvoCharacter();
     }
 }
