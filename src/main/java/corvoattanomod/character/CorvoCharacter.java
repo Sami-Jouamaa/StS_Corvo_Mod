@@ -3,6 +3,7 @@ package corvoattanomod.character;
 import basemod.BaseMod;
 import basemod.abstracts.CustomEnergyOrb;
 import basemod.abstracts.CustomPlayer;
+import basemod.animations.AbstractAnimation;
 import basemod.animations.SpriterAnimation;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
@@ -22,6 +23,8 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import corvoattanomod.cards.attacks.Strike;
+import corvoattanomod.cards.skills.Defend;
 
 import java.util.ArrayList;
 
@@ -35,6 +38,10 @@ public class CorvoCharacter extends CustomPlayer {
     public static final int STARTING_GOLD = 99;
     public static final int CARD_DRAW = 5;
     public static final int ORB_SLOTS = 0;
+
+    public static boolean stealthStance = false;
+    public static boolean neutralStance = false;
+    public static boolean combatStance = false;
 
     //Strings
     private static final String ID = makeID("Corvo"); //This should match whatever you have in the CharacterStrings.json file
@@ -119,15 +126,21 @@ public class CorvoCharacter extends CustomPlayer {
     public CorvoCharacter() {
         super(getNames()[0], Meta.Corvo_Character,
                 new CustomEnergyOrb(orbTextures, characterPath("energyorb/vfx.png"), layerSpeeds), //Energy Orb
-                new SpriterAnimation(characterPath("animation/default.scml"))); //Animation
-
-        initializeClass(null,
-                SHOULDER_2,
-                SHOULDER_1,
-                CORPSE,
-                getLoadout(),
-                20.0F, -20.0F, 200.0F, 250.0F, //Character hitbox. x y position, then width and height.
-                new EnergyManager(ENERGY_PER_TURN));
+//                new SpriterAnimation(characterPath("animation/default.scml"))); //Animation
+                new AbstractAnimation() {
+                    @Override
+                    public Type type() {
+                        return Type.NONE;
+                    }
+                });
+        neutralStance = true;
+                initializeClass(characterPath("corvo.jpg"),
+                        SHOULDER_2,
+                        SHOULDER_1,
+                        CORPSE,
+                        getLoadout(),
+                        20.0F, -20.0F, 200.0F, 250.0F, //Character hitbox. x y position, then width and height.
+                        new EnergyManager(ENERGY_PER_TURN));
 
         //Location for text bubbles. You can adjust it as necessary later. For most characters, these values are fine.
         dialogX = (drawX + 0.0F * Settings.scale);
@@ -139,10 +152,10 @@ public class CorvoCharacter extends CustomPlayer {
         ArrayList<String> retVal = new ArrayList<>();
         //List of IDs of cards for your starting deck.
         //If you want multiple of the same card, you have to add it multiple times.
-        retVal.add(Strike_Red.ID);
-        retVal.add(Strike_Red.ID);
-        retVal.add(Defend_Blue.ID);
-        retVal.add(Defend_Blue.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
         retVal.add(Neutralize.ID);
 
         return retVal;

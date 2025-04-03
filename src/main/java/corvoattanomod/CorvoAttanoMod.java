@@ -1,9 +1,10 @@
 package corvoattanomod;
 
+import basemod.AutoAdd;
 import basemod.BaseMod;
-import basemod.interfaces.EditKeywordsSubscriber;
-import basemod.interfaces.EditStringsSubscriber;
-import basemod.interfaces.PostInitializeSubscriber;
+import basemod.interfaces.*;
+import corvoattanomod.cards.BaseCard;
+import corvoattanomod.character.CorvoCharacter;
 import corvoattanomod.util.GeneralUtils;
 import corvoattanomod.util.KeywordInfo;
 import corvoattanomod.util.TextureLoader;
@@ -29,6 +30,8 @@ import java.util.*;
 
 @SpireInitializer
 public class CorvoAttanoMod implements
+        EditCharactersSubscriber,
+        EditCardsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         PostInitializeSubscriber {
@@ -47,6 +50,8 @@ public class CorvoAttanoMod implements
     //This will be called by ModTheSpire because of the @SpireInitializer annotation at the top of the class.
     public static void initialize() {
         new CorvoAttanoMod();
+
+        CorvoCharacter.Meta.registerColor();
     }
 
     public CorvoAttanoMod() {
@@ -218,5 +223,18 @@ public class CorvoAttanoMod implements
         else {
             throw new RuntimeException("Failed to determine mod info/ID based on initializer.");
         }
+    }
+
+    @Override
+    public void receiveEditCharacters() {
+        CorvoCharacter.Meta.registerCharacter();
+    }
+
+    @Override
+    public void receiveEditCards() {
+        new AutoAdd(modID)
+                .packageFilter(BaseCard.class)
+                .setDefaultSeen(true)
+                .cards();
     }
 }
