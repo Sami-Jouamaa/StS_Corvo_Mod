@@ -8,6 +8,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import corvoattanomod.cards.BaseCard;
 import corvoattanomod.character.CorvoCharacter;
 import corvoattanomod.util.CardStats;
+import corvoattanomod.util.MeleeRanged;
 
 public class Strike extends BaseCard {
     public static final String ID = makeID("Strike");
@@ -33,6 +34,14 @@ public class Strike extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        boolean triggersBonus = MeleeRanged.checkMelee();
+        if (triggersBonus)
+        {
+            addToBot(new DamageAction(m, new DamageInfo(p, (int) Math.round(1.5*damage), DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        }
+        else
+        {
+            addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        }
     }
 }
