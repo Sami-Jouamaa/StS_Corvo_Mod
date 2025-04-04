@@ -23,6 +23,7 @@ import com.megacrit.cardcrawl.helpers.FontHelper;
 import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
+import corvoattanomod.cards.attacks.CrossbowShot;
 import corvoattanomod.cards.attacks.Strike;
 import corvoattanomod.cards.skills.Defend;
 
@@ -156,6 +157,7 @@ public class CorvoCharacter extends CustomPlayer {
         retVal.add(Strike.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
+        retVal.add(CrossbowShot.ID);
         retVal.add(Neutralize.ID);
 
         return retVal;
