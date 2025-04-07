@@ -3,6 +3,7 @@ package corvoattanomod;
 import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
+import com.badlogic.gdx.utils.compression.lzma.Base;
 import corvoattanomod.cards.BaseCard;
 import corvoattanomod.character.CorvoCharacter;
 import corvoattanomod.util.GeneralUtils;
@@ -125,6 +126,8 @@ public class CorvoAttanoMod implements
     @Override
     public void receiveEditKeywords()
     {
+        BaseMod.addKeyword(new String[]{"ranged"}, "Has chance to deal 50% more damage depending on the stance.");
+        BaseMod.addKeyword(new String[]{"melee"}, "Has a chance to apply 3 vulnerable and 3 weak to all enemies.");
         Gson gson = new Gson();
         String json = Gdx.files.internal(localizationPath(defaultLanguage, "Keywords.json")).readString(String.valueOf(StandardCharsets.UTF_8));
         KeywordInfo[] keywords = gson.fromJson(json, KeywordInfo[].class);

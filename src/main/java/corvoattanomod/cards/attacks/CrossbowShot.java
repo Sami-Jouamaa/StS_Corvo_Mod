@@ -1,5 +1,6 @@
 package corvoattanomod.cards.attacks;
 
+import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -40,5 +41,8 @@ public class CrossbowShot extends BaseCard {
             damageToDeal = (int)Math.round(1.5*damageToDeal);
         }
         addToBot(new DamageAction(m, new DamageInfo(p, damageToDeal, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+
+        // Can use this to sleep enemies for a turn, will sleep them the turn the attack is played though
+        addToBot((new StunMonsterAction(m, p, 1)));
     }
 }
