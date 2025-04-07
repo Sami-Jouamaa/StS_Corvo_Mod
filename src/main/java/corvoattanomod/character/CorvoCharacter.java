@@ -24,6 +24,7 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import corvoattanomod.cards.attacks.CrossbowShot;
+import corvoattanomod.cards.attacks.PistolShot;
 import corvoattanomod.cards.attacks.Strike;
 import corvoattanomod.cards.skills.Defend;
 
@@ -155,10 +156,14 @@ public class CorvoCharacter extends CustomPlayer {
         //If you want multiple of the same card, you have to add it multiple times.
         retVal.add(Strike.ID);
         retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Strike.ID);
+        retVal.add(Defend.ID);
+        retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(Defend.ID);
         retVal.add(CrossbowShot.ID);
-        retVal.add(Neutralize.ID);
+        retVal.add(PistolShot.ID);
 
         return retVal;
     }

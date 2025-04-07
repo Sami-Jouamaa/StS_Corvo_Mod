@@ -8,5 +8,21 @@
       "If you need to use it for stuff.",
       "Blizzard is a good example for this."
     ]
+  },
+  "${modID}:Strike": {
+    "NAME": "Strike",
+    "DESCRIPTION": "Melee, deal !D! damage."
+  },
+  "${modID}:Defend": {
+    "NAME": "Defend",
+    "DESCRIPTION": "Gain !B! Block."
+  },
+  "${modID}:CrossbowShot": {
+    "NAME": "Crossbow Shot",
+    "DESCRIPTION": "Ranged, deal !D! damage."
+  },
+  "${modID}:PistolShot": {
+    "NAME": "Pistol Shot",
+    "DESCRIPTION": "Ranged, Deal !D! damage to an enemy and the one behind it."
   }
 }

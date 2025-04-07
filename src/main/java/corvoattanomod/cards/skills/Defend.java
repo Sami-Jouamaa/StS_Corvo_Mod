@@ -22,14 +22,14 @@ public class Defend extends BaseCard {
             CardTarget.SELF,
             1
     );
-    private static final int block = 5;
-    private static final int upg_block = 7;
+    private static final int BLOCK = 5;
+    private static final int UPG_BLOCK = 2;
 
     public Defend()
     {
         super(ID, cardInfo);
 
-        setBlock(block, upg_block);
+        setBlock(BLOCK, UPG_BLOCK);
         tags.add(AbstractCard.CardTags.STARTER_DEFEND);
     }
 

@@ -1,10 +1,22 @@
 package corvoattanomod.cards.attacks;
 
+import com.evacipated.cardcrawl.mod.stslib.patches.bothInterfaces.OnReceivePowerPatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.animations.VFXAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
+import com.megacrit.cardcrawl.powers.StrengthPower;
+import com.megacrit.cardcrawl.powers.VulnerablePower;
+import com.megacrit.cardcrawl.powers.WeakPower;
+import com.megacrit.cardcrawl.vfx.AbstractGameEffect;
+import com.megacrit.cardcrawl.vfx.combat.IntimidateEffect;
 import corvoattanomod.cards.BaseCard;
 import corvoattanomod.character.CorvoCharacter;
 import corvoattanomod.util.CardStats;
@@ -19,14 +31,15 @@ public class Strike extends BaseCard {
             CardTarget.ENEMY,
             1
     );
-    private static final int damage = 6;
-    private static final int upg_damage = 9;
+    private static final int DAMAGE = 6;
+    // upg_damage is the amount of damage to add onto the base value
+    private static final int UPG_DAMAGE = 3;
 
     public Strike()
     {
         super(ID, cardInfo);
 
-        setDamage(damage, upg_damage);
+        setDamage(DAMAGE, UPG_DAMAGE);
         tags.add(CardTags.STARTER_STRIKE);
         tags.add(CardTags.STRIKE);
     }
@@ -37,7 +50,14 @@ public class Strike extends BaseCard {
         boolean triggersBonus = MeleeRanged.checkMelee();
         if (triggersBonus)
         {
-            // Add fear and weaken for 3 turns
+            addToBot(new SFXAction("INTIMIDATE"));
+            addToBot(new VFXAction(p, new IntimidateEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 1.0F));
+            for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters)
+            {
+                addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)mo, (AbstractCreature)p, (AbstractPower)new WeakPower((AbstractCreature)mo, 3, false), 3, true, AbstractGameAction.AttackEffect.NONE));
+                addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)mo, (AbstractCreature)p, (AbstractPower)new VulnerablePower((AbstractCreature)mo, 3, false), 3, true, AbstractGameAction.AttackEffect.NONE));
+            }
+
         }
         addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
     }

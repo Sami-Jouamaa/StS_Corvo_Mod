@@ -20,28 +20,25 @@ public class CrossbowShot extends BaseCard {
             1
     );
 
-    private static final int damage = 10;
-    private static final int upg_damage = 15;
+    private static final int DAMAGE = 10;
+    private static final int UPG_DAMAGE = 5;
 
     public CrossbowShot()
     {
         super(ID, cardInfo);
 
-        setDamage(damage, upg_damage);
-        tags.add(CardTags.STARTER_STRIKE);
+        setDamage(DAMAGE, UPG_DAMAGE);
     }
 
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         boolean triggersBonus = MeleeRanged.checkRanged();
+        int damageToDeal = damage;
         if (triggersBonus)
         {
-            addToBot(new DamageAction(m, new DamageInfo(p, (int)Math.round(1.5*damage), DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+            damageToDeal = (int)Math.round(1.5*damageToDeal);
         }
-        else
-        {
-            addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        }
+        addToBot(new DamageAction(m, new DamageInfo(p, damageToDeal, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
     }
 }
