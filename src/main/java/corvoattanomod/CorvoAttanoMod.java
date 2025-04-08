@@ -129,6 +129,9 @@ public class CorvoAttanoMod implements
         BaseMod.addKeyword(new String[]{"ranged"}, "Has a chance to deal 50% more damage depending on the stance.");
         BaseMod.addKeyword(new String[]{"melee"}, "Has a chance to apply 3 vulnerable and 3 weak to all enemies.");
         BaseMod.addKeyword(new String[]{"sleep"}, "The targeted enemy will be stunned for a turn.");
+        BaseMod.addKeyword(new String[]{"burn"}, "This enemy will lose as much HP as the number of stacks. NL The number of stacks will then be divided by 2 until only 1 is left.");
+        BaseMod.addKeyword(new String[]{"gore"}, "This attack has a 20% chance to apply the fear effect, no matter the stance.");
+        BaseMod.addKeyword(new String[]{"fear"}, "When applied, ALL enemies gain 3 stacks of vulnerable and weakened.");
 
         Gson gson = new Gson();
         String json = Gdx.files.internal(localizationPath(defaultLanguage, "Keywords.json")).readString(String.valueOf(StandardCharsets.UTF_8));

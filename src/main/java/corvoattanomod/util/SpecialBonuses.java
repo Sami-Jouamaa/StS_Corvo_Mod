@@ -2,10 +2,9 @@ package corvoattanomod.util;
 
 import java.util.Random;
 
-import corvoattanomod.CorvoAttanoMod;
 import corvoattanomod.character.CorvoCharacter;
 
-public class MeleeRanged {
+public class SpecialBonuses {
 
     public static boolean checkMelee()
     {
@@ -42,5 +41,14 @@ public class MeleeRanged {
             return result <= 50;
         }
         return false;
+    }
+
+    public static boolean checkGore()
+    {
+        Random r = new Random();
+        int low = 0;
+        int high = 100;
+        int result = r.nextInt(high - low) + low;
+        return result <= 19;
     }
 }

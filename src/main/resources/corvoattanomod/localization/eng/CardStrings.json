@@ -11,7 +11,7 @@
   },
   "${modID}:Strike": {
     "NAME": "Strike",
-    "DESCRIPTION": "Melee, deal !D! damage."
+    "DESCRIPTION": "Melee NL Deal !D! damage."
   },
   "${modID}:Defend": {
     "NAME": "Defend",
@@ -19,22 +19,50 @@
   },
   "${modID}:CrossbowShot": {
     "NAME": "Crossbow Shot",
-    "DESCRIPTION": "Ranged, deal !D! damage."
+    "DESCRIPTION": "Ranged NL Deal !D! damage."
   },
   "${modID}:PistolShot": {
     "NAME": "Pistol Shot",
-    "DESCRIPTION": "Ranged, Deal !D! damage to an enemy and the one behind it."
+    "DESCRIPTION": "Ranged NL Deal !D! damage to an enemy and the one behind it."
   },
   "${modID}:InstantSleepDart": {
     "NAME": "Instant Sleep Dart",
-    "DESCRIPTION": "Ranged, Deal !D! damage to an enemy and immediately Sleep them for one turn."
+    "DESCRIPTION": "Ranged NL Deal !D! damage to an enemy and immediately Sleep them for one turn."
   },
   "${modID}:SleepDart": {
     "NAME": "Sleep Dart",
-    "DESCRIPTION": "Ranged, Deal !D! damage to an enemy, next turn, Sleep them for one turn."
+    "DESCRIPTION": "Ranged NL Deal !D! damage to an enemy, next turn, Sleep them for one turn."
   },
   "${modID}:ScopedInCrossbow": {
     "NAME": "Scoped-in crossbow",
-    "DESCRIPTION": "Ranged, Deal !D! damage to an enemy."
+    "DESCRIPTION": "Ranged NL Deal !D! damage to an enemy."
+  },
+  "${modID}:Grenade": {
+    "NAME": "Grenade",
+    "DESCRIPTION": "Ranged NL Deal !D! damage to ALL enemies."
+  },
+  "${modID}:IncendiaryBolt": {
+    "NAME": "Incendiary bolt",
+    "DESCRIPTION": "Ranged NL Deal !D! damage to an enemy and apply !M! stacks of Burn to it."
+  },
+  "${modID}:CombustionBolt": {
+    "NAME": "Combustion bolt",
+    "DESCRIPTION": "Ranged NL Deal !D! damage to an enemy and apply !M! stacks of Burn to ALL enemies."
+  },
+  "${modID}:HardenedBolt": {
+    "NAME": "Hardened bolt",
+    "DESCRIPTION": "Ranged NL Deal !D! damage to an enemy."
+  },
+  "${modID}:PiercingStab": {
+    "NAME": "Piercing stab",
+    "DESCRIPTION": "Melee NL Deal !D! damage to an enemy and !M! % to the enemy to its right."
+  },
+  "${modID}:ChokeOut": {
+    "NAME": "Choke out",
+    "DESCRIPTION": "Next turn, deal !D! damage and Sleep the targeted enemy."
+  },
+  "${modID}:SummonRatAttack": {
+    "NAME": "Summon rat attack",
+    "DESCRIPTION": "Gore NL Exhaust NL Deal !D! damage to ALL enemies 5 times. The fear effect can at most be applied twice."
   }
 }

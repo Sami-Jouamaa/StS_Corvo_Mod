@@ -1,20 +1,17 @@
 package corvoattanomod.cards.attacks;
 
-import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
-import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.powers.AbstractPower;
 import corvoattanomod.cards.BaseCard;
 import corvoattanomod.character.CorvoCharacter;
 import corvoattanomod.powers.SleepNextTurn;
 import corvoattanomod.util.CardStats;
-import corvoattanomod.util.MeleeRanged;
+import corvoattanomod.util.SpecialBonuses;
 
 public class SleepDart extends BaseCard {
     public static final String ID = makeID("SleepDart");
@@ -39,13 +36,13 @@ public class SleepDart extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        boolean triggersBonus = MeleeRanged.checkRanged();
+        boolean triggersBonus = SpecialBonuses.checkRanged();
         int damageToDeal = damage;
         if (triggersBonus)
         {
             damageToDeal = (int)Math.round(1.5*damageToDeal);
         }
         addToBot(new DamageAction(m, new DamageInfo(p, damageToDeal, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
-        addToBot(new ApplyPowerAction(m, p, new SleepNextTurn(m, 1), 1));
+        addToBot(new ApplyPowerAction(m, p, new SleepNextTurn(m, 1, 0), 1));
     }
 }

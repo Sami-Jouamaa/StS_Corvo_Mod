@@ -10,5 +10,13 @@
     "DESCRIPTIONS": [
       "The number shows in how many turns the monster will be slept for a turn."
     ]
+  },
+  "${modID}:Burn": {
+    "NAME": "Burn",
+    "DESCRIPTIONS": [
+      "At the start of its turn, this creature loses #b damage and then loses half of the stacks.",
+      "What",
+      "What the fuck"
+    ]
   }
 }

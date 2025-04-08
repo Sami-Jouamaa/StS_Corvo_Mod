@@ -2,7 +2,6 @@ package corvoattanomod.cards.attacks;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
@@ -10,6 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import corvoattanomod.cards.BaseCard;
 import corvoattanomod.character.CorvoCharacter;
 import corvoattanomod.util.CardStats;
+import corvoattanomod.util.SpecialBonuses;
 
 public class PistolShot extends BaseCard {
     public static final String ID = makeID("PistolShot");
@@ -33,7 +33,7 @@ public class PistolShot extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        boolean triggersBonus = corvoattanomod.util.MeleeRanged.checkRanged();
+        boolean triggersBonus = SpecialBonuses.checkRanged();
         AbstractMonster previousEnemy = null;
         int damageToDeal = damage;
 

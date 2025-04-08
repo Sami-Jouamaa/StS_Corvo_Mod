@@ -9,7 +9,7 @@ import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import corvoattanomod.cards.BaseCard;
 import corvoattanomod.character.CorvoCharacter;
 import corvoattanomod.util.CardStats;
-import corvoattanomod.util.MeleeRanged;
+import corvoattanomod.util.SpecialBonuses;
 
 public class InstantSleepDart  extends BaseCard {
     public static final String ID = makeID("InstantSleepDart");
@@ -34,7 +34,7 @@ public class InstantSleepDart  extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        boolean triggersBonus = MeleeRanged.checkRanged();
+        boolean triggersBonus = SpecialBonuses.checkRanged();
         int damageToDeal = damage;
         if (triggersBonus)
         {

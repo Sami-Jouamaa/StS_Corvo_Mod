@@ -1,8 +1,7 @@
 package corvoattanomod.cards.attacks;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
-import com.megacrit.cardcrawl.actions.common.DamageAction;
-import com.megacrit.cardcrawl.cards.DamageInfo;
+import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import corvoattanomod.cards.BaseCard;
@@ -10,23 +9,23 @@ import corvoattanomod.character.CorvoCharacter;
 import corvoattanomod.util.CardStats;
 import corvoattanomod.util.SpecialBonuses;
 
-public class CrossbowShot extends BaseCard {
-    public static  final String ID = makeID("CrossbowShot");
+public class Grenade extends BaseCard {
+    public static final String ID = makeID("Grenade");
     private static final CardStats cardInfo = new CardStats(
             CorvoCharacter.Meta.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.BASIC,
-            CardTarget.ENEMY,
+            CardRarity.COMMON,
+            CardTarget.ALL_ENEMY,
             1
     );
 
-    private static final int DAMAGE = 10;
-    private static final int UPG_DAMAGE = 5;
+    private static final int DAMAGE = 7;
+    private static final int UPG_DAMAGE = 11;
 
-    public CrossbowShot()
+    public Grenade()
     {
         super(ID, cardInfo);
-
+        this.isMultiDamage = true;
         setDamage(DAMAGE, UPG_DAMAGE);
     }
 
@@ -39,6 +38,7 @@ public class CrossbowShot extends BaseCard {
         {
             damageToDeal = (int)Math.round(1.5*damageToDeal);
         }
-        addToBot(new DamageAction(m, new DamageInfo(p, damageToDeal, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+
+        addToBot(new DamageAllEnemiesAction(p, damageToDeal, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
     }
 }

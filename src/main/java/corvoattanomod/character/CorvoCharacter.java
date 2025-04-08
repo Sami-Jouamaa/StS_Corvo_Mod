@@ -153,13 +153,13 @@ public class CorvoCharacter extends CustomPlayer {
         //List of IDs of cards for your starting deck.
         //If you want multiple of the same card, you have to add it multiple times.
         retVal.add(Strike.ID);
-        retVal.add(Strike.ID);
-        retVal.add(Strike.ID);
-        retVal.add(Strike.ID);
+//        retVal.add(Strike.ID);
+//        retVal.add(Strike.ID);
+//        retVal.add(Strike.ID);
         retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
-        retVal.add(Defend.ID);
+//        retVal.add(Defend.ID);
+//        retVal.add(Defend.ID);
+//        retVal.add(Defend.ID);
         retVal.add(CrossbowShot.ID);
         retVal.add(PistolShot.ID);
 

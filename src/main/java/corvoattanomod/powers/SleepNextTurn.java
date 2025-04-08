@@ -3,7 +3,9 @@ package corvoattanomod.powers;
 import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.evacipated.cardcrawl.mod.stslib.powers.interfaces.NonStackablePower;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.core.CardCrawlGame;
 import com.megacrit.cardcrawl.localization.PowerStrings;
@@ -19,12 +21,15 @@ public class SleepNextTurn extends AbstractPower {
 
     public static final String[] Descriptions = powerStrings.DESCRIPTIONS;
 
-    public SleepNextTurn(AbstractCreature owner, int amount)
+    public static int damage;
+
+    public SleepNextTurn(AbstractCreature owner, int amount, int damage)
     {
         this.name = NAME;
         this.ID = "SleepNextTurn";
         this.owner = owner;
         this.amount = amount;
+        SleepNextTurn.damage = damage;
         updateDescriptions();
         loadRegion("poison");
     }
@@ -39,5 +44,6 @@ public class SleepNextTurn extends AbstractPower {
         flash();
         addToBot(new ReducePowerAction(this.owner, this.owner, "SleepNextTurn", 1));
         addToBot((new StunMonsterAction((AbstractMonster) this.owner, null, 1)));
+        addToBot(new DamageAction(this.owner, new DamageInfo(this.owner, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.NONE));
     }
 }

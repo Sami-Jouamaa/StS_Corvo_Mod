@@ -10,24 +10,25 @@ import corvoattanomod.character.CorvoCharacter;
 import corvoattanomod.util.CardStats;
 import corvoattanomod.util.SpecialBonuses;
 
-public class CrossbowShot extends BaseCard {
-    public static  final String ID = makeID("CrossbowShot");
+public class HardenedBolt extends BaseCard {
+    public static final String ID = makeID("HardenedBolt");
     private static final CardStats cardInfo = new CardStats(
             CorvoCharacter.Meta.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.BASIC,
+            CardRarity.COMMON,
             CardTarget.ENEMY,
-            1
+            2
     );
 
-    private static final int DAMAGE = 10;
-    private static final int UPG_DAMAGE = 5;
+    private static final int DAMAGE = 18;
+    private static final int UPG_DAMAGE = 7;
 
-    public CrossbowShot()
+    public HardenedBolt()
     {
         super(ID, cardInfo);
 
         setDamage(DAMAGE, UPG_DAMAGE);
+        setCostUpgrade(1);
     }
 
     @Override

@@ -1,36 +1,40 @@
 package corvoattanomod.cards.attacks;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import corvoattanomod.cards.BaseCard;
 import corvoattanomod.character.CorvoCharacter;
+import corvoattanomod.powers.Burn;
 import corvoattanomod.util.CardStats;
 import corvoattanomod.util.SpecialBonuses;
 
-public class CrossbowShot extends BaseCard {
-    public static  final String ID = makeID("CrossbowShot");
+public class CombustionBolt extends BaseCard {
+    public static final String ID = makeID("CombustionBolt");
     private static final CardStats cardInfo = new CardStats(
             CorvoCharacter.Meta.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.BASIC,
+            CardRarity.UNCOMMON,
             CardTarget.ENEMY,
-            1
+            2
     );
 
-    private static final int DAMAGE = 10;
-    private static final int UPG_DAMAGE = 5;
+    private static final int DAMAGE = 6;
+    private static final int BURN = 6;
+    private static final int UPG_BURN = 2;
 
-    public CrossbowShot()
+    public CombustionBolt()
     {
         super(ID, cardInfo);
 
-        setDamage(DAMAGE, UPG_DAMAGE);
+        setDamage(DAMAGE);
+        setMagic(BURN, UPG_BURN);
     }
 
-    @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
         boolean triggersBonus = SpecialBonuses.checkRanged();
@@ -40,5 +44,10 @@ public class CrossbowShot extends BaseCard {
             damageToDeal = (int)Math.round(1.5*damageToDeal);
         }
         addToBot(new DamageAction(m, new DamageInfo(p, damageToDeal, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        for (AbstractMonster mo: (AbstractDungeon.getCurrRoom()).monsters.monsters)
+        {
+            addToBot(new ApplyPowerAction(mo, p, new Burn(mo, p, this.magicNumber), this.magicNumber, AbstractGameAction.AttackEffect.FIRE));
+        }
+
     }
 }
