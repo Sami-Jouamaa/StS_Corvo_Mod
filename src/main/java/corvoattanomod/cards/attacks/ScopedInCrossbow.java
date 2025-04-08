@@ -1,6 +1,5 @@
 package corvoattanomod.cards.attacks;
 
-import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
@@ -11,20 +10,20 @@ import corvoattanomod.character.CorvoCharacter;
 import corvoattanomod.util.CardStats;
 import corvoattanomod.util.MeleeRanged;
 
-public class CrossbowShot extends BaseCard {
-    public static  final String ID = makeID("CrossbowShot");
+public class ScopedInCrossbow extends BaseCard {
+    public static final String ID = makeID("ScopedInCrossbow");
     private static final CardStats cardInfo = new CardStats(
             CorvoCharacter.Meta.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.BASIC,
+            CardRarity.COMMON,
             CardTarget.ENEMY,
-            1
+            2
     );
 
-    private static final int DAMAGE = 10;
-    private static final int UPG_DAMAGE = 5;
+    private static final int DAMAGE = 20;
+    private static final int UPG_DAMAGE = 6;
 
-    public CrossbowShot()
+    public ScopedInCrossbow()
     {
         super(ID, cardInfo);
 
@@ -40,6 +39,6 @@ public class CrossbowShot extends BaseCard {
         {
             damageToDeal = (int)Math.round(1.5*damageToDeal);
         }
-        addToBot(new DamageAction(m, new DamageInfo(p, damageToDeal, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        addToBot(new DamageAction(m, new DamageInfo(p, damageToDeal, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_HEAVY));
     }
 }

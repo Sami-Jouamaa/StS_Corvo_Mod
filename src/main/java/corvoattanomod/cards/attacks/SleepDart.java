@@ -2,29 +2,34 @@ package corvoattanomod.cards.attacks;
 
 import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
+import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAction;
+import com.megacrit.cardcrawl.cards.AbstractCard;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
+import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import corvoattanomod.cards.BaseCard;
 import corvoattanomod.character.CorvoCharacter;
+import corvoattanomod.powers.SleepNextTurn;
 import corvoattanomod.util.CardStats;
 import corvoattanomod.util.MeleeRanged;
 
-public class CrossbowShot extends BaseCard {
-    public static  final String ID = makeID("CrossbowShot");
+public class SleepDart extends BaseCard {
+    public static final String ID = makeID("SleepDart");
     private static final CardStats cardInfo = new CardStats(
             CorvoCharacter.Meta.CARD_COLOR,
-            CardType.ATTACK,
-            CardRarity.BASIC,
-            CardTarget.ENEMY,
-            1
+            AbstractCard.CardType.ATTACK,
+            AbstractCard.CardRarity.UNCOMMON,
+            AbstractCard.CardTarget.ENEMY,
+            2
     );
 
-    private static final int DAMAGE = 10;
-    private static final int UPG_DAMAGE = 5;
+    private static final int DAMAGE = 3;
+    private static final int UPG_DAMAGE = 3;
 
-    public CrossbowShot()
+    public SleepDart()
     {
         super(ID, cardInfo);
 
@@ -41,5 +46,6 @@ public class CrossbowShot extends BaseCard {
             damageToDeal = (int)Math.round(1.5*damageToDeal);
         }
         addToBot(new DamageAction(m, new DamageInfo(p, damageToDeal, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        addToBot(new ApplyPowerAction(m, p, new SleepNextTurn(m, 1), 1));
     }
 }

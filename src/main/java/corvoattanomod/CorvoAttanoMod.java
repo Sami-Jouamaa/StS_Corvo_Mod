@@ -126,8 +126,10 @@ public class CorvoAttanoMod implements
     @Override
     public void receiveEditKeywords()
     {
-        BaseMod.addKeyword(new String[]{"ranged"}, "Has chance to deal 50% more damage depending on the stance.");
+        BaseMod.addKeyword(new String[]{"ranged"}, "Has a chance to deal 50% more damage depending on the stance.");
         BaseMod.addKeyword(new String[]{"melee"}, "Has a chance to apply 3 vulnerable and 3 weak to all enemies.");
+        BaseMod.addKeyword(new String[]{"sleep"}, "The targeted enemy will be stunned for a turn.");
+
         Gson gson = new Gson();
         String json = Gdx.files.internal(localizationPath(defaultLanguage, "Keywords.json")).readString(String.valueOf(StandardCharsets.UTF_8));
         KeywordInfo[] keywords = gson.fromJson(json, KeywordInfo[].class);

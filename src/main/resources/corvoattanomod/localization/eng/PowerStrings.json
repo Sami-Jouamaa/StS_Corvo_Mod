@@ -4,5 +4,11 @@
     "DESCRIPTIONS": [
       "You are Very Cool and Strong."
     ]
+  },
+  "${modID}:SleepNextTurn": {
+    "NAME": "Sleep Dart",
+    "DESCRIPTIONS": [
+      "The number shows in how many turns the monster will be slept for a turn."
+    ]
   }
 }

@@ -24,5 +24,17 @@
   "${modID}:PistolShot": {
     "NAME": "Pistol Shot",
     "DESCRIPTION": "Ranged, Deal !D! damage to an enemy and the one behind it."
+  },
+  "${modID}:InstantSleepDart": {
+    "NAME": "Instant Sleep Dart",
+    "DESCRIPTION": "Ranged, Deal !D! damage to an enemy and immediately Sleep them for one turn."
+  },
+  "${modID}:SleepDart": {
+    "NAME": "Sleep Dart",
+    "DESCRIPTION": "Ranged, Deal !D! damage to an enemy, next turn, Sleep them for one turn."
+  },
+  "${modID}:ScopedInCrossbow": {
+    "NAME": "Scoped-in crossbow",
+    "DESCRIPTION": "Ranged, Deal !D! damage to an enemy."
   }
 }
