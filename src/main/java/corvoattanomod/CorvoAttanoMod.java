@@ -132,6 +132,9 @@ public class CorvoAttanoMod implements
         BaseMod.addKeyword(new String[]{"burn"}, "This enemy will lose as much HP as the number of stacks. NL The number of stacks will then be divided by 2 until only 1 is left.");
         BaseMod.addKeyword(new String[]{"gore"}, "This attack has a 20% chance to apply the fear effect, no matter the stance.");
         BaseMod.addKeyword(new String[]{"fear"}, "When applied, ALL enemies gain 3 stacks of vulnerable and weakened.");
+        BaseMod.addKeyword(new String[]{"combat"}, "This stance has a higher chance to procc the fear for Melee attacks but a lower one for the extra damage on Ranged attacks.");
+        BaseMod.addKeyword(new String[]{"stealth"}, "This stance has a higher chance to procc the extra damage on Ranged attaacks and a lower one for the Fear on Melee attacks.");
+        BaseMod.addKeyword(new String[]{"neutral"}, "This is the default stance, the probabilities are between the ones for Combat and Stealth.");
 
         Gson gson = new Gson();
         String json = Gdx.files.internal(localizationPath(defaultLanguage, "Keywords.json")).readString(String.valueOf(StandardCharsets.UTF_8));

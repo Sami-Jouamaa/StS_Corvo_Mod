@@ -37,9 +37,8 @@ public class IncendiaryBolt extends BaseCard {
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        boolean triggersBonus = SpecialBonuses.checkRanged();
         int damageToDeal = damage;
-        if (triggersBonus)
+        if (SpecialBonuses.checkRanged())
         {
             damageToDeal = (int)Math.round(1.5*damageToDeal);
         }

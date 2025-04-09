@@ -72,5 +72,13 @@
   "${modID}:SummonBloodflyAttack": {
     "NAME": "Summon bloodfly attack",
     "DESCRIPTION": "Fear NL Exhaust NL Deal !D! damage !M! times to ALL enemies, each hit applies the Fear."
+  },
+  "${modID}:Punch": {
+    "NAME": "Punch",
+    "DESCRIPTION": "Melee NL Deal !D! damage to an enemy."
+  },
+  "${modID}:ThroatSlit": {
+    "NAME": "Throat slit",
+    "DESCRIPTION": "Melee NL If in Stealth, deal !D! damage to an enemy. NL If in Combat, deal 50% of that damage and Fear. NL If in Neutral stance, deal 50% of the damage and roll the chance for a Fear."
   }
 }

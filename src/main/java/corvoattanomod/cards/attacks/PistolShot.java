@@ -33,11 +33,10 @@ public class PistolShot extends BaseCard {
     @Override
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        boolean triggersBonus = SpecialBonuses.checkRanged();
         AbstractMonster previousEnemy = null;
         int damageToDeal = damage;
 
-        if (triggersBonus)
+        if (SpecialBonuses.checkRanged())
         {
             damageToDeal = (int)Math.round(1.5*(damageToDeal));
         }
