@@ -63,6 +63,14 @@
   },
   "${modID}:SummonRatAttack": {
     "NAME": "Summon rat attack",
-    "DESCRIPTION": "Gore NL Exhaust NL Deal !D! damage to ALL enemies 5 times. The fear effect can at most be applied twice."
+    "DESCRIPTION": "Gore NL Exhaust NL Deal !D! damage to ALL enemies 5 times. The fear effect can be applied at most once."
+  },
+  "${modID}:SummonWeeperAttack": {
+    "NAME": "Summon weeper attack",
+    "DESCRIPTION": "Fear NL Exhaust NL Deal !D! damage to an enemy."
+  },
+  "${modID}:SummonBloodflyAttack": {
+    "NAME": "Summon bloodfly attack",
+    "DESCRIPTION": "Fear NL Exhaust NL Deal !D! damage !M! times to ALL enemies, each hit applies the Fear."
   }
 }
