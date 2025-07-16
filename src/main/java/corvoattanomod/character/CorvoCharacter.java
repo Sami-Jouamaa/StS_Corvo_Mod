@@ -133,7 +133,8 @@ public class CorvoCharacter extends CustomPlayer {
                         return Type.NONE;
                     }
                 });
-        neutralStance = true;
+        neutralStance = false;
+        combatStance = true;
                 initializeClass(characterPath("corvo.jpg"),
                         SHOULDER_2,
                         SHOULDER_1,
@@ -164,7 +165,7 @@ public class CorvoCharacter extends CustomPlayer {
         retVal.add(PistolShot.ID);
 
         // To test new cards
-        retVal.add(ThroatSlit.ID);
+        retVal.add(Terrify.ID);
         return retVal;
     }
 

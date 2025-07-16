@@ -80,5 +80,17 @@
   "${modID}:ThroatSlit": {
     "NAME": "Throat slit",
     "DESCRIPTION": "Melee NL If in Stealth, deal !D! damage to an enemy. NL If in Combat, deal 50% of that damage and Fear. NL If in Neutral stance, deal 50% of the damage and roll the chance for a Fear."
+  },
+  "${modID}:DropAssassination": {
+    "NAME": "Drop assassination",
+    "DESCRIPTION": "Melee NL Can only be played in Stealth, deal !D! damage to an enemy and enter Combat."
+  },
+  "${modID}:BloodDisplay": {
+    "NAME": "Blood display",
+    "DESCRIPTION": "Melee NL Deal !D! damage, if in Combat and it is lethal, Fear ALL enemies, otherwise, roll for Fear."
+  },
+  "${modID}:Terrify": {
+    "NAME": "Terrify",
+    "DESCRIPTION": "Melee NL Deal !D! damage. If lethal, Fear ALL enemies."
   }
 }
