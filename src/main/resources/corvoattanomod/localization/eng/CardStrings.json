@@ -92,5 +92,13 @@
   "${modID}:Terrify": {
     "NAME": "Terrify",
     "DESCRIPTION": "Melee NL Deal !D! damage. If lethal, Fear ALL enemies."
+  },
+  "${modID}:StingingBolt": {
+    "NAME": "Stinging bolt",
+    "DESCRIPTION": "Ranged NL Deal !D! damage to an enemy and Fear ALL enemies."
+  },
+  "${modID}:HowlingBolt": {
+    "NAME": "Howling bolt",
+    "DESCRIPTION": "Ranged NL Deal !D! damage to an enemy and apply !M! Weak to it."
   }
 }
