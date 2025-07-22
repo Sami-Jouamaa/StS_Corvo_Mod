@@ -100,5 +100,25 @@
   "${modID}:HowlingBolt": {
     "NAME": "Howling bolt",
     "DESCRIPTION": "Ranged NL Deal !D! damage to an enemy and apply !M! Weak to it."
+  },
+  "${modID}:SprayNPray": {
+    "NAME": "Spray And Pray",
+    "DESCRIPTION": "Ranged NL Deal !D! damage to a random enemy !M! times."
+  },
+  "${modID}:ExplosiveBullet": {
+    "NAME": "Explosive bullet",
+    "DESCRIPTION": "Ranged NL Deal !D! damage to an enemy and 50% of it to that enemy again and the one on the right."
+  },
+  "${modID}:ClusterBullet": {
+    "NAME": "Cluster bullet",
+    "DESCRIPTION": "Ranged NL Deal !D! damage to an enemy and 50% of it to ALL enemies."
+  },
+  "${modID}:CoffinNails": {
+    "NAME": "Coffin nails",
+    "DESCRIPTION": "Ranged NL Deal !D! damage to an enemy twice and apply !M! Vulnerable to it."
+  },
+  "${modID}:SummonAssassin": {
+    "NAME": "Summon assassin",
+    "DESCRIPTION": "Ranged NL Deal !D! to an enemy and Fear ALL enemies, counts as being in Stealth. Once played, go back to Neutral stance."
   }
 }
