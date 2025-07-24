@@ -128,5 +128,9 @@
   "${modID}:FoldingBlade": {
     "NAME": "Folding blade",
     "DESCRIPTION": "Melee NL If in Combat, deal !D! damage to ALL enemies, otherwise, twice that damage to an enemy."
+  },
+  "${modID}:ShadowAssassination": {
+    "NAME": "Shadow assassination",
+    "DESCRIPTION": "Melee NL Deal !D! damage to an enemy, then, enter Stealth."
   }
 }
