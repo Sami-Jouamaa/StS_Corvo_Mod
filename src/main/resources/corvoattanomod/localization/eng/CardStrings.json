@@ -132,5 +132,17 @@
   "${modID}:ShadowAssassination": {
     "NAME": "Shadow assassination",
     "DESCRIPTION": "Melee NL Deal !D! damage to an enemy, then, enter Stealth."
+  },
+  "${modID}:ThievingStrike": {
+    "NAME": "Thieving strike",
+    "DESCRIPTION": "Melee NL Deal !D! damage to an enemy and draw !M! card."
+  },
+  "${modID}:PommelToTheNeck": {
+    "NAME": "Pommel to the neck",
+    "DESCRIPTION": "Melee NL Deal !D! damage to an enemy and sleep them if in Stealth."
+  },
+  "${modID}:SewerStrike": {
+    "NAME": "Sewer strike",
+    "DESCRIPTION": "Melee NL If in Stealth, apply !M! Vulnerable to an enemy. NL Deal !D! damage to an enemy."
   }
 }

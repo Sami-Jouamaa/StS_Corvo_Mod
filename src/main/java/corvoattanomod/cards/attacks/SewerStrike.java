@@ -1,5 +1,6 @@
 package corvoattanomod.cards.attacks;
 
+import basemod.patches.com.megacrit.cardcrawl.screens.custom.CustomModeScreen.MyTrueFormPatch;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -19,8 +20,8 @@ import corvoattanomod.character.CorvoCharacter;
 import corvoattanomod.util.CardStats;
 import corvoattanomod.util.SpecialBonuses;
 
-public class ShadowAssassination extends BaseCard {
-    public static final String ID = makeID("ShadowAssassination");
+public class SewerStrike extends BaseCard {
+    public static final String ID = makeID("SewerStrike");
     private static final CardStats cardInfo = new CardStats(
             CorvoCharacter.Meta.CARD_COLOR,
             CardType.ATTACK,
@@ -29,18 +30,25 @@ public class ShadowAssassination extends BaseCard {
             2
     );
 
-    private static final int DAMAGE = 15;
-    private static final int UPG_DAMAGE = 5;
+    private static final int DAMAGE = 8;
+    private static final int UPG_DAMAGE = 4;
+    private static final int VULNERABLE = 1;
+    private static final int UPG_VULNERABLE = 1;
 
-    public ShadowAssassination()
+    public SewerStrike()
     {
         super(ID, cardInfo);
         setDamage(DAMAGE, UPG_DAMAGE);
+        setMagic(VULNERABLE, UPG_VULNERABLE);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        if(CorvoCharacter.stealthStance)
+        {
+            addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)m, (AbstractCreature)p, (AbstractPower)new VulnerablePower((AbstractCreature)m, magicNumber, false), magicNumber, true, AbstractGameAction.AttackEffect.NONE));
+        }
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
         if(SpecialBonuses.checkMelee())
         {
             addToBot(new SFXAction("INTIMIDATE"));
@@ -51,8 +59,5 @@ public class ShadowAssassination extends BaseCard {
                 addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)mo, (AbstractCreature)p, (AbstractPower)new VulnerablePower((AbstractCreature)mo, 3, false), 3, true, AbstractGameAction.AttackEffect.NONE));
             }
         }
-        CorvoCharacter.neutralStance = false;
-        CorvoCharacter.combatStance = false;
-        CorvoCharacter.stealthStance = true;
     }
 }

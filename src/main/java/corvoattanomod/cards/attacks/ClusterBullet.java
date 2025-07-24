@@ -20,7 +20,7 @@ public class ClusterBullet extends BaseCard {
     private static final CardStats cardInfo = new CardStats(
             CorvoCharacter.Meta.CARD_COLOR,
             AbstractCard.CardType.ATTACK,
-            AbstractCard.CardRarity.UNCOMMON,
+            AbstractCard.CardRarity.RARE,
             AbstractCard.CardTarget.ENEMY,
             2
     );

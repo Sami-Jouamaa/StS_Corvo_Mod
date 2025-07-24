@@ -23,7 +23,7 @@ public class SummonBloodflyAttack extends BaseCard {
     private static final CardStats cardInfo = new CardStats(
             CorvoCharacter.Meta.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.UNCOMMON,
+            CardRarity.RARE,
             CardTarget.ALL_ENEMY,
             3
     );

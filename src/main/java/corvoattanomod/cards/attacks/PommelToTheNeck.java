@@ -1,5 +1,6 @@
 package corvoattanomod.cards.attacks;
 
+import com.evacipated.cardcrawl.mod.stslib.actions.common.StunMonsterAction;
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
@@ -19,20 +20,20 @@ import corvoattanomod.character.CorvoCharacter;
 import corvoattanomod.util.CardStats;
 import corvoattanomod.util.SpecialBonuses;
 
-public class ShadowAssassination extends BaseCard {
-    public static final String ID = makeID("ShadowAssassination");
+public class PommelToTheNeck extends BaseCard {
+    public static final String ID = makeID("PommelToTheNeck");
     private static final CardStats cardInfo = new CardStats(
             CorvoCharacter.Meta.CARD_COLOR,
             CardType.ATTACK,
-            CardRarity.UNCOMMON,
+            CardRarity.RARE,
             CardTarget.ENEMY,
             2
     );
 
-    private static final int DAMAGE = 15;
-    private static final int UPG_DAMAGE = 5;
+    private static final int DAMAGE = 4;
+    private static final int UPG_DAMAGE = 3;
 
-    public ShadowAssassination()
+    public PommelToTheNeck()
     {
         super(ID, cardInfo);
         setDamage(DAMAGE, UPG_DAMAGE);
@@ -40,7 +41,11 @@ public class ShadowAssassination extends BaseCard {
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.SLASH_VERTICAL));
+        addToBot(new DamageAction(m, new DamageInfo(p, damage, DamageInfo.DamageType.NORMAL), AbstractGameAction.AttackEffect.BLUNT_LIGHT));
+        if(CorvoCharacter.stealthStance)
+        {
+            addToBot((new StunMonsterAction(m, p, 1)));
+        }
         if(SpecialBonuses.checkMelee())
         {
             addToBot(new SFXAction("INTIMIDATE"));
@@ -51,8 +56,5 @@ public class ShadowAssassination extends BaseCard {
                 addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)mo, (AbstractCreature)p, (AbstractPower)new VulnerablePower((AbstractCreature)mo, 3, false), 3, true, AbstractGameAction.AttackEffect.NONE));
             }
         }
-        CorvoCharacter.neutralStance = false;
-        CorvoCharacter.combatStance = false;
-        CorvoCharacter.stealthStance = true;
     }
 }
