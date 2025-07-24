@@ -120,5 +120,13 @@
   "${modID}:SummonAssassin": {
     "NAME": "Summon assassin",
     "DESCRIPTION": "Ranged NL Deal !D! to an enemy and Fear ALL enemies, counts as being in Stealth. Once played, go back to Neutral stance."
+  },
+  "${modID}:TwistTheKnife": {
+    "NAME": "Twist the knife",
+    "DESCRIPTION": "Melee NL Deal !D! damage to an enemy, if that enemy is Weak and Vulnerable, gain 2 Energy and draw 1 card."
+  },
+  "${modID}:FoldingBlade": {
+    "NAME": "Folding blade",
+    "DESCRIPTION": "Melee NL If in Combat, deal !D! damage to ALL enemies, otherwise, twice that damage to an enemy."
   }
 }
