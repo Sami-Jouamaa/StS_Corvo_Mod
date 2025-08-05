@@ -144,5 +144,13 @@
   "${modID}:SewerStrike": {
     "NAME": "Sewer strike",
     "DESCRIPTION": "Melee NL If in Stealth, apply !M! Vulnerable to an enemy. NL Deal !D! damage to an enemy."
+  },
+  "${modID}:Blink": {
+    "NAME": "Blink",
+    "DESCRIPTION": "Gain !B! Block, the next attack deals 10 more damage."
+  },
+  "${modID}:DevouringSwarm": {
+    "NAME": "Devouring swarm",
+    "DESCRIPTION": "Gore NL Deal !D! damage !M! times to an enemy. The Fear is rolled three times but can only be applied once. "
   }
 }

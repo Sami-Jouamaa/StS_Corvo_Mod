@@ -24,7 +24,9 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import corvoattanomod.cards.attacks.*;
+import corvoattanomod.cards.skills.Blink;
 import corvoattanomod.cards.skills.Defend;
+import corvoattanomod.cards.skills.DevouringSwarm;
 
 import java.util.ArrayList;
 
