@@ -25,6 +25,7 @@ import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import corvoattanomod.cards.attacks.*;
 import corvoattanomod.cards.skills.*;
+import corvoattanomod.relics.TheHeart;
 
 import javax.swing.*;
 import java.util.ArrayList;
@@ -174,7 +175,7 @@ public class CorvoCharacter extends CustomPlayer {
     public ArrayList<String> getStartingRelics() {
         ArrayList<String> retVal = new ArrayList<>();
         //IDs of starting relics. You can have multiple, but one is recommended.
-        retVal.add(BurningBlood.ID);
+        retVal.add(TheHeart.ID);
 
         return retVal;
     }

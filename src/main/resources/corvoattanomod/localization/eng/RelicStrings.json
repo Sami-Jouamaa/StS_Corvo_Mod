@@ -5,5 +5,12 @@
     "DESCRIPTIONS": [
       "Gain [E] at the start of your turn. [E] is an energy icon."
     ]
+  },
+  "${modID}:TheHeart": {
+    "NAME": "The Heart",
+    "FLAVOR": "The Heart of late Empress Jessamine Kaldwin. Used to inspect people's heart.",
+    "DESCRIPTIONS": [
+      "Gain Clairvoyance at the beginning of battle."
+    ]
   }
 }

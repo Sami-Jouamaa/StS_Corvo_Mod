@@ -156,5 +156,9 @@
   "${modID}:Springrazor": {
     "NAME": "Springrazor",
     "DESCRIPTION": "Gore NL Next turn, deal !D! damage !M! times to ALL enemies, Fear can be applied at most twice."
+  },
+  "${modID}:Clairvoyance": {
+    "NAME": "Clairvoyance",
+    "DESCRIPTION": "Reveal the target's intent on its next turn."
   }
 }

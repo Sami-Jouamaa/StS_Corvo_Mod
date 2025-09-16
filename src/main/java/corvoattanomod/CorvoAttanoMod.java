@@ -4,8 +4,10 @@ import basemod.AutoAdd;
 import basemod.BaseMod;
 import basemod.interfaces.*;
 import com.badlogic.gdx.utils.compression.lzma.Base;
+import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import corvoattanomod.cards.BaseCard;
 import corvoattanomod.character.CorvoCharacter;
+import corvoattanomod.relics.BaseRelic;
 import corvoattanomod.util.GeneralUtils;
 import corvoattanomod.util.KeywordInfo;
 import corvoattanomod.util.TextureLoader;
@@ -33,6 +35,7 @@ import java.util.*;
 public class CorvoAttanoMod implements
         EditCharactersSubscriber,
         EditCardsSubscriber,
+        EditRelicsSubscriber,
         EditStringsSubscriber,
         EditKeywordsSubscriber,
         PostInitializeSubscriber {
@@ -247,5 +250,23 @@ public class CorvoAttanoMod implements
                 .packageFilter(BaseCard.class)
                 .setDefaultSeen(true)
                 .cards();
+    }
+
+    @Override
+    public void receiveEditRelics()
+    {
+        new AutoAdd(modID)
+                .packageFilter(BaseRelic.class)
+                .any(BaseRelic.class, (info, relic) -> { //Run this code for any classes that extend this class
+                    if (relic.pool != null)
+                        BaseMod.addRelicToCustomPool(relic, relic.pool); //Register a custom character specific relic
+                    else
+                        BaseMod.addRelic(relic, relic.relicType); //Register a shared or base game character specific relic
+
+                    //If the class is annotated with @AutoAdd.Seen, it will be marked as seen, making it visible in the relic library.
+                    //If you want all your relics to be visible by default, just remove this if statement.
+                    if (info.seen)
+                        UnlockTracker.markRelicAsSeen(relic.relicId);
+                });
     }
 }
