@@ -24,10 +24,9 @@ import com.megacrit.cardcrawl.helpers.ScreenShake;
 import com.megacrit.cardcrawl.relics.BurningBlood;
 import com.megacrit.cardcrawl.screens.CharSelectInfo;
 import corvoattanomod.cards.attacks.*;
-import corvoattanomod.cards.skills.Blink;
-import corvoattanomod.cards.skills.Defend;
-import corvoattanomod.cards.skills.DevouringSwarm;
+import corvoattanomod.cards.skills.*;
 
+import javax.swing.*;
 import java.util.ArrayList;
 
 import static corvoattanomod.CorvoAttanoMod.characterPath;
@@ -167,6 +166,7 @@ public class CorvoCharacter extends CustomPlayer {
         retVal.add(PistolShot.ID);
 
         // To test new cards
+        retVal.add(Springrazor.ID);
         return retVal;
     }
 

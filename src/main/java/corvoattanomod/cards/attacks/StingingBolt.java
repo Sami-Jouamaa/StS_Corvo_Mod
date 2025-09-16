@@ -38,6 +38,7 @@ public class StingingBolt extends BaseCard {
         super(ID, cardInfo);
 
         setDamage(DAMAGE, UPG_DAMAGE);
+        setCostUpgrade(1);
     }
 
     public void use(AbstractPlayer p, AbstractMonster m)

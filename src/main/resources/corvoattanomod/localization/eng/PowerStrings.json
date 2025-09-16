@@ -14,9 +14,16 @@
   "${modID}:Burn": {
     "NAME": "Burn",
     "DESCRIPTIONS": [
-      "At the start of its turn, this creature loses #b damage and then loses half of the stacks.",
+      "At the start of its turn, this creature takes #b damage and then loses half of the stacks.",
       "What",
       "What the fuck"
+    ]
+  },
+  "${modID}:SpringrazorEffect": {
+    "NAME": "Springrazor",
+    "DESCRIPTIONS": [
+      "At the end of your turn, deal #b damage four times to ALL enemies.",
+      "Why is not working"
     ]
   }
 }

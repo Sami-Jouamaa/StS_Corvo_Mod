@@ -152,5 +152,9 @@
   "${modID}:DevouringSwarm": {
     "NAME": "Devouring swarm",
     "DESCRIPTION": "Gore NL Deal !D! damage !M! times to an enemy. The Fear is rolled three times but can only be applied once. "
+  },
+  "${modID}:Springrazor": {
+    "NAME": "Springrazor",
+    "DESCRIPTION": "Gore NL Next turn, deal !D! damage !M! times to ALL enemies, Fear can be applied at most twice."
   }
 }
