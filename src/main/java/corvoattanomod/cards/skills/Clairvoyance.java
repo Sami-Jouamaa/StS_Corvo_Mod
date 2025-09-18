@@ -3,14 +3,11 @@ package corvoattanomod.cards.skills;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.monsters.exordium.Hexaghost;
 import com.megacrit.cardcrawl.vfx.ThoughtBubble;
 import corvoattanomod.cards.BaseCard;
 import corvoattanomod.character.CorvoCharacter;
 import corvoattanomod.util.CardStats;
 import corvoattanomod.util.MonsterIntentFinder;
-
-import java.time.MonthDay;
 
 public class Clairvoyance extends BaseCard {
     public static final String ID = makeID("Clairvoyance");
@@ -109,6 +106,15 @@ public class Clairvoyance extends BaseCard {
                 break;
             case "TheGuardian":
                 intent = MonsterIntentFinder.TheGuardianIntent(m);
+                break;
+            case "CorruptHeart":
+                intent = MonsterIntentFinder.TheHeartIntent(m);
+                break;
+            case "SpireShield":
+                intent = MonsterIntentFinder.SpireShieldIntent(m);
+                break;
+            case "SpireSpear":
+                intent = MonsterIntentFinder.SpireSpearIntent(m);
                 break;
         }
         AbstractDungeon.effectList.add(new ThoughtBubble(p.dialogX, p.dialogY, 3.0F, intent, true));

@@ -709,4 +709,75 @@ public class MonsterIntentFinder {
                return ATTACK;
        }
     }
+
+    public static String TheHeartIntent(AbstractMonster m)
+    {
+        if (GameActionManager.turn < 3)
+        {
+            return ATTACK;
+        }
+        else if (GameActionManager.turn % 3 == 0)
+        {
+            return BUFF;
+        }
+        return ATTACK;
+    }
+
+    public static String SpireShieldIntent(AbstractMonster m)
+    {
+        boolean randomBoolean = getRandomBoolean();
+        int currentMove = m.nextMove;
+
+        switch (GameActionManager.turn % 3)
+        {
+            case 1:
+                if (currentMove == 2)
+                {
+                    return ATTACK_DEBUFF;
+                }
+                return DEFEND;
+            case 2:
+                return ATTACK;
+            case 0:
+                if (randomBoolean)
+                {
+                    return DEFEND;
+                }
+                return ATTACK_DEBUFF;
+            default:
+                return "Something went wrong, whoops";
+        }
+    }
+
+    public static String SpireSpearIntent(AbstractMonster m)
+    {
+        boolean randomBoolean = getRandomBoolean();
+        int currentMove = m.nextMove;
+
+        if (GameActionManager.turn == 1)
+        {
+            return ATTACK;
+        }
+
+        switch (GameActionManager.turn % 3)
+        {
+            case 0:
+                if (currentMove == 1)
+                {
+                    return BUFF;
+                }
+                return ATTACK_DEBUFF;
+            case 1:
+                return ATTACK;
+            case 2:
+                if (randomBoolean)
+                {
+                    return BUFF;
+                }
+                return ATTACK_DEBUFF;
+            default:
+                return "Whoops, something went wrong";
+        }
+    }
+
 }
