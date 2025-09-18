@@ -467,7 +467,7 @@ public class MonsterIntentFinder {
             case 6:
                 return ATTACK;
             default:
-                return ATTACK; //never getting used but will shut up the compiler
+                return "Help, something went wrong!";
         }
     }
 
@@ -496,7 +496,7 @@ public class MonsterIntentFinder {
             case 2:
                 return DEBUFF;
             default:
-                return ATTACK; //not getting used
+                return "Something went wrong, help...";
         }
     }
 
@@ -706,7 +706,7 @@ public class MonsterIntentFinder {
            case 6:
                return ATTACK;
            default:
-               return ATTACK;
+               return "Something went wrong, modder didn't his job correctly.";
        }
     }
 
