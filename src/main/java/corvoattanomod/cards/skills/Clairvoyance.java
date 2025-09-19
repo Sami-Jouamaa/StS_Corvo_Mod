@@ -116,6 +116,69 @@ public class Clairvoyance extends BaseCard {
             case "SpireSpear":
                 intent = MonsterIntentFinder.SpireSpearIntent(m);
                 break;
+            case "BanditBear":
+                intent = MonsterIntentFinder.BearIntent(m);
+                break;
+            case "BanditLeader":
+                intent = MonsterIntentFinder.RomeoIntent(m);
+                break;
+            case "BanditChild":
+                intent = "Attack";
+                break;
+            case "BookOfStabbing":
+                intent = "Attack";
+                break;
+            case "BronzeAutomaton":
+                intent = MonsterIntentFinder.BronzeAutomatonIntent(m);
+                break;
+            case "BronzeOrb":
+                intent = MonsterIntentFinder.BronzeOrbIntent(m);
+                break;
+            case "Byrd":
+                intent = MonsterIntentFinder.ByrdIntent(m);
+                break;
+            case "Centurion":
+                intent = MonsterIntentFinder.CenturionIntent(m);
+                break;
+            case "Champ":
+                intent = MonsterIntentFinder.ChampIntent(m); //to test a lot of with the numTurns that dictates when he can debuff
+                break;
+            case "Chosen":
+                intent = MonsterIntentFinder.ChosenIntent(m);
+                break;
+            case "GremlinLeader":
+                intent = MonsterIntentFinder.GremlinLeaderIntent(m, 0);
+                break;
+            case "Healer":
+                intent = MonsterIntentFinder.HealerIntent(m);
+                break;
+            case "Mugger":
+                intent = MonsterIntentFinder.LooterIntent(m);
+                break;
+            case "Shelled Parasite":
+                intent = MonsterIntentFinder.ShelledParasiteIntent(m, 0);
+                break;
+            case "SnakePlant":
+                intent = MonsterIntentFinder.SnakePlantIntent(m);
+                break;
+            case "Snecko":
+                intent = MonsterIntentFinder.SneckoIntent(m);
+                break;
+            case "SphericGuardian":
+                intent = MonsterIntentFinder.SphericGuardianIntent(m);
+                break;
+            case "SlaverBoss":
+                intent = MonsterIntentFinder.TaskmasterIntent();
+                break;
+            case "TheCollector":
+                intent = MonsterIntentFinder.TheCollector(m);
+                break;
+            case "TorchHead":
+                intent ="Attack";
+                break;
+            default:
+                intent = "Something went wrong with " + m.id;
+                break;
         }
         AbstractDungeon.effectList.add(new ThoughtBubble(p.dialogX, p.dialogY, 3.0F, intent, true));
     }
