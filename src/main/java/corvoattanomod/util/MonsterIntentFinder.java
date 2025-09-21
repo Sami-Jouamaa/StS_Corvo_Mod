@@ -6,6 +6,8 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
+import com.megacrit.cardcrawl.orbs.Dark;
+import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.vfx.scene.DefectVictoryNumberEffect;
 
 public class MonsterIntentFinder {
@@ -1325,5 +1327,104 @@ public class MonsterIntentFinder {
         } else {
             return ATTACK;
         }
+    }
+
+    public static String AwakenedOneIntent(AbstractMonster m)
+    {
+        int moveRoll = getMoveRoll();
+        int currentMove = m.nextMove;
+        int lastMove = -1;
+
+        if (m.moveHistory.size() > 1)
+        {
+            lastMove = m.moveHistory.get(m.moveHistory.size() - 1);
+        }
+
+        boolean isPhase1 = false;
+        for (AbstractPower powers: m.powers)
+        {
+            if (powers.ID == "Unawakened")
+            {
+                isPhase1 = true;
+                break;
+            }
+        }
+        if (isPhase1) {
+            return ATTACK;
+        } else {
+            if (moveRoll < 50) {
+                if (currentMove != 6 && lastMove != 6) {
+                    return ATTACK_DEBUFF;
+                } else {
+                    return ATTACK;
+                }
+            } else if (currentMove != 8 && lastMove != 8) {
+                return ATTACK;
+            } else {
+                return ATTACK_DEBUFF;
+            }
+        }
+    }
+
+    public static String DarklingIntent(AbstractMonster m, int newRoll)
+    {
+        int moveRoll = getMoveRoll();
+        int currentMove = m.nextMove;
+        int lastMove = -1;
+
+        if (m.moveHistory.size() > 1)
+        {
+            lastMove = m.moveHistory.get(m.moveHistory.size() - 1);
+        }
+
+        if (m.halfDead) {
+            return BUFF;
+        }
+        if (moveRoll < 40) {
+            if (currentMove != 1 && (AbstractDungeon.getMonsters()).monsters.lastIndexOf(m) % 2 == 0) {
+                return ATTACK;
+            } else {
+                DarklingIntent(m, getMoveRoll(40, 99));
+            }
+        } else if (moveRoll < 70) {
+            if (currentMove != 2) {
+                if (AbstractDungeon.ascensionLevel >= 17) {
+                    return DEFEND_BUFF;
+                } else {
+                    return DEFEND;
+                }
+            } else {
+                return ATTACK;
+            }
+        } else if (currentMove != 3 && lastMove != 3) {
+            return ATTACK;
+        } else {
+            DarklingIntent(m, getMoveRoll(0, 99));
+        }
+        return "Darkling function went wrong";
+    }
+
+    public static String DecaIntent()
+    {
+        switch (GameActionManager.turn % 2)
+        {
+            case 0:
+                return DEFEND;
+            case 1:
+                return ATTACK_DEBUFF;
+        }
+        return "Deca function messed up";
+    }
+
+    public static String DonuIntent()
+    {
+        switch (GameActionManager.turn % 2)
+        {
+            case 0:
+                return BUFF;
+            case 1:
+                return ATTACK;
+        }
+        return "Donu function went wrong";
     }
 }

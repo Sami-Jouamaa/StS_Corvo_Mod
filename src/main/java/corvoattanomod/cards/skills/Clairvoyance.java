@@ -176,6 +176,18 @@ public class Clairvoyance extends BaseCard {
             case "TorchHead":
                 intent ="Attack";
                 break;
+            case "AwakenedOne":
+                intent = MonsterIntentFinder.AwakenedOneIntent(m);
+                break;
+            case "Darkling":
+                intent = MonsterIntentFinder.DarklingIntent(m, 0);
+                break;
+            case "Deca":
+                intent = MonsterIntentFinder.DecaIntent();
+                break;
+            case "Donu":
+                intent = MonsterIntentFinder.DonuIntent();
+                break;
             default:
                 intent = "Something went wrong with " + m.id;
                 break;
