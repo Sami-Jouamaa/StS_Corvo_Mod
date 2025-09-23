@@ -29,7 +29,7 @@ public class Clairvoyance extends BaseCard {
 
     public void use(AbstractPlayer p, AbstractMonster m)
     {
-        String intent = "";
+        String intent;
         switch(m.id)
         {
             case "AcidSlime_L":
@@ -72,13 +72,13 @@ public class Clairvoyance extends BaseCard {
                 intent = "Attack";
                 break;
             case "GremlinWizard":
-                intent = MonsterIntentFinder.WizardGremlinIntent(m);
+                intent = MonsterIntentFinder.WizardGremlinIntent();
                 break;
             case "Hexaghost":
-                intent = MonsterIntentFinder.HexaghostIntent(m);
+                intent = MonsterIntentFinder.HexaghostIntent();
                 break;
             case "Lagavulin":
-                intent = MonsterIntentFinder.LagavulinIntent(m);
+                intent = MonsterIntentFinder.LagavulinIntent();
                 break;
             case "Looter":
                 intent = MonsterIntentFinder.LooterIntent(m);
@@ -108,7 +108,7 @@ public class Clairvoyance extends BaseCard {
                 intent = MonsterIntentFinder.TheGuardianIntent(m);
                 break;
             case "CorruptHeart":
-                intent = MonsterIntentFinder.TheHeartIntent(m);
+                intent = MonsterIntentFinder.TheHeartIntent();
                 break;
             case "SpireShield":
                 intent = MonsterIntentFinder.SpireShieldIntent(m);
@@ -129,7 +129,7 @@ public class Clairvoyance extends BaseCard {
                 intent = "Attack";
                 break;
             case "BronzeAutomaton":
-                intent = MonsterIntentFinder.BronzeAutomatonIntent(m);
+                intent = MonsterIntentFinder.BronzeAutomatonIntent();
                 break;
             case "BronzeOrb":
                 intent = MonsterIntentFinder.BronzeOrbIntent(m);

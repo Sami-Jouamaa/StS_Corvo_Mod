@@ -1,14 +1,10 @@
 package corvoattanomod.util;
 
-import com.badlogic.gdx.Game;
 import com.megacrit.cardcrawl.actions.GameActionManager;
-import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.dungeons.AbstractDungeon;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
-import com.megacrit.cardcrawl.orbs.Dark;
 import com.megacrit.cardcrawl.powers.AbstractPower;
-import com.megacrit.cardcrawl.vfx.scene.DefectVictorymoveRollberEffect;
 
 public class MonsterIntentFinder {
     public static String ATTACK = "Attack";
@@ -332,7 +328,6 @@ public class MonsterIntentFinder {
 
     public static String SmallAcidSlimeIntent(AbstractMonster m)
     {
-        int moveRoll = getMoveRoll();
         int currentMove = m.nextMove;
         int lastMove = -1;
 
@@ -435,7 +430,7 @@ public class MonsterIntentFinder {
         return DEFEND;
     }
 
-    public static String WizardGremlinIntent(AbstractMonster m)
+    public static String WizardGremlinIntent()
     {
         if (GameActionManager.turn == 2)
         {
@@ -459,7 +454,7 @@ public class MonsterIntentFinder {
         return UNKNOWN;
     }
 
-    public static String HexaghostIntent(AbstractMonster m)
+    public static String HexaghostIntent()
     {
         if (GameActionManager.turn == 1)
         {
@@ -491,17 +486,8 @@ public class MonsterIntentFinder {
         }
     }
 
-    public static String LagavulinIntent(AbstractMonster m)
+    public static String LagavulinIntent()
     {
-        int moveRoll = getMoveRoll();
-        int currentMove = m.nextMove;
-        int lastMove = -1;
-
-        if (m.moveHistory.size() > 1)
-        {
-            lastMove = m.moveHistory.get(m.moveHistory.size() - 1);
-        }
-
         if (GameActionManager.turn <= 2)
         {
             return "Sleep";
@@ -597,7 +583,7 @@ public class MonsterIntentFinder {
             lastMove = m.moveHistory.get(m.moveHistory.size() - 1);
         }
 
-        boolean usedEntangle = m.moveHistory.contains(2) || currentMove == 2;
+        boolean usedEntangle = m.moveHistory.contains((byte) 2) || currentMove == 2;
 
         if (moveRoll >= 75 && !usedEntangle) {
             return DEBUFF;
@@ -730,7 +716,7 @@ public class MonsterIntentFinder {
        }
     }
 
-    public static String TheHeartIntent(AbstractMonster m)
+    public static String TheHeartIntent()
     {
         if (GameActionManager.turn < 3)
         {
@@ -847,7 +833,7 @@ public class MonsterIntentFinder {
         return ATTACK;
     }
 
-    public static String BronzeAutomatonIntent(AbstractMonster m)
+    public static String BronzeAutomatonIntent()
     {
         switch (GameActionManager.turn % 6)
         {
@@ -1076,7 +1062,7 @@ public class MonsterIntentFinder {
 
     public static String GremlinLeaderIntent(AbstractMonster m, int recursiveRoll)
     {
-        int moveRoll = 0;
+        int moveRoll;
         if (recursiveRoll > 0)
         {
             moveRoll = getMoveRoll();
@@ -1090,7 +1076,7 @@ public class MonsterIntentFinder {
         int moveRollAliveGremlins = 0;
         for (AbstractMonster monster: AbstractDungeon.getMonsters().monsters)
         {
-            if (monster.id != m.id)
+            if (monster.id.equals(m.id))
             {
                 moveRollAliveGremlins++;
             }
@@ -1181,7 +1167,7 @@ public class MonsterIntentFinder {
 
     public static String ShelledParasiteIntent(AbstractMonster m, int recursiveRoll)
     {
-        int moveRoll = 0;
+        int moveRoll;
         if (recursiveRoll > 0)
         {
             moveRoll = getMoveRoll();
@@ -1374,9 +1360,17 @@ public class MonsterIntentFinder {
         }
     }
 
-    public static String DarklingIntent(AbstractMonster m, int newRoll)
+    public static String DarklingIntent(AbstractMonster m, int recursiveRoll)
     {
-        int moveRoll = getMoveRoll();
+        int moveRoll;
+        if (recursiveRoll > 0)
+        {
+            moveRoll = getMoveRoll();
+        }
+        else
+        {
+            moveRoll = recursiveRoll;
+        }
         int currentMove = m.nextMove;
         int lastMove = -1;
 
@@ -1575,7 +1569,15 @@ public class MonsterIntentFinder {
 
     public static String ReptomancerIntent(AbstractMonster m, int recursiveRoll)
     {
-        int moveRoll = getMoveRoll();
+        int moveRoll;
+        if (recursiveRoll > 0)
+        {
+            moveRoll = getMoveRoll();
+        }
+        else
+        {
+            moveRoll = recursiveRoll;
+        }
         int currentMove = m.nextMove;
         int lastMove = -1;
 
@@ -1683,7 +1685,15 @@ public class MonsterIntentFinder {
 
     public static String TimeEaterIntent(AbstractMonster m, int recursiveRoll)
     {
-        int moveRoll = getMoveRoll();
+        int moveRoll;
+        if (recursiveRoll > 0)
+        {
+            moveRoll = getMoveRoll();
+        }
+        else
+        {
+            moveRoll = recursiveRoll;
+        }
         int currentMove = m.nextMove;
         int lastMove = -1;
 
@@ -1721,7 +1731,15 @@ public class MonsterIntentFinder {
 
     public static String WrithingMassIntent(AbstractMonster m, int recursiveRoll)
     {
-        int moveRoll = getMoveRoll();
+        int moveRoll;
+        if (recursiveRoll > 0)
+        {
+            moveRoll = getMoveRoll();
+        }
+        else
+        {
+            moveRoll = recursiveRoll;
+        }
         int currentMove = m.nextMove;
 
         boolean hasCursed = m.moveHistory.contains((byte) 4);
@@ -1761,5 +1779,6 @@ public class MonsterIntentFinder {
         } else {
             WrithingMassIntent(m, getMoveRoll(69));
         }
+        return "Writhing mass messed up";
     }
 }
