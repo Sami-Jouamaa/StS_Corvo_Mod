@@ -188,6 +188,45 @@ public class Clairvoyance extends BaseCard {
             case "Donu":
                 intent = MonsterIntentFinder.DonuIntent();
                 break;
+            case "Exploder":
+                intent = MonsterIntentFinder.ExploderIntent();
+                break;
+            case "GiantHead":
+                intent = MonsterIntentFinder.GiantHeadIntent(m);
+                break;
+            case "Maw":
+                intent = MonsterIntentFinder.MawIntent(m);
+                break;
+            case "Nemesis":
+                intent = MonsterIntentFinder.NemesisIntent(m);
+                break;
+            case "Orb Walker":
+                intent = MonsterIntentFinder.OrbWalkerIntent(m);
+                break;
+            case "Reptomancer":
+                intent = MonsterIntentFinder.ReptomancerIntent(m, 0);
+                break;
+            case "Repulsor":
+                intent = MonsterIntentFinder.RepulsorIntent(m);
+                break;
+            case "Dagger":
+                intent = "Attack";
+                break;
+            case "Spiker":
+                intent = MonsterIntentFinder.SpikerIntent(m);
+                break;
+            case "Serpent":
+                intent = MonsterIntentFinder.SpireGrowthIntent(m);
+                break;
+            case "TimeEater":
+                intent = MonsterIntentFinder.TimeEaterIntent(m, 0);
+                break;
+            case "Transient":
+                intent = "Attack";
+                break;
+            case "WrithingMass":
+                intent = MonsterIntentFinder.WrithingMassIntent(m, 0);
+                break;
             default:
                 intent = "Something went wrong with " + m.id;
                 break;
