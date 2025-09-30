@@ -160,5 +160,9 @@
   "${modID}:Clairvoyance": {
     "NAME": "Clairvoyance",
     "DESCRIPTION": "Reveal the target's intent on its next turn."
+  },
+  "${modID}:ArcMine": {
+    "NAME": "Arc mine",
+    "DESCRIPTION": "Next turn, deal !D! damage and apply !M! Weak to an enemy."
   }
 }

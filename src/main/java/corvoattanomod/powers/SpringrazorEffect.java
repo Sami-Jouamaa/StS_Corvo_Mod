@@ -19,31 +19,28 @@ import com.megacrit.cardcrawl.powers.WeakPower;
 import com.megacrit.cardcrawl.vfx.combat.IntimidateEffect;
 import corvoattanomod.util.SpecialBonuses;
 
-public class SpringrazorEffect extends AbstractPower {
-    public static final String POWER_ID = "SpringrazorEffect";
-    private static final PowerStrings powerStrings = CardCrawlGame.languagePack.getPowerStrings("SpringrazorEffect");
-    public static final String NAME = powerStrings.NAME;
-    public static final String[] Descriptions = powerStrings.DESCRIPTIONS;
+import static corvoattanomod.CorvoAttanoMod.makeID;
+
+public class SpringrazorEffect extends BasePower {
+    public static final String POWER_ID = makeID("SpringrazorEffect");
+    private static final AbstractPower.PowerType TYPE = PowerType.BUFF;
+    private static final boolean TURN_BASED = true;
     public static int damage;
     public static int dmgRepeat;
     public static int fearMaxNumber;
 
     public SpringrazorEffect(AbstractCreature owner, int amount, int damage, int repeat, int fearNumber)
     {
-        this.name = NAME;
-        this.ID = POWER_ID;
-        this.owner = owner;
-        this.amount = amount;
+        super(POWER_ID, TYPE, TURN_BASED, owner, amount);
         SpringrazorEffect.damage = damage;
         SpringrazorEffect.dmgRepeat = repeat;
         SpringrazorEffect.fearMaxNumber = fearNumber;
         updateDescription();
-        loadRegion("the_bomb");
     }
 
     public void updateDescription()
     {
-        this.description = Descriptions[0];
+        this.description = DESCRIPTIONS[0] + damage + DESCRIPTIONS[1];
     }
 
     public void atStartOfTurnPostDraw()

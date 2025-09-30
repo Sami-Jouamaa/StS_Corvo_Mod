@@ -22,8 +22,16 @@
   "${modID}:SpringrazorEffect": {
     "NAME": "Springrazor",
     "DESCRIPTIONS": [
-      "At the end of your turn, deal #b damage four times to ALL enemies.",
-      "Why is not working"
+      "At the end of your turn, deal #b",
+      " damage four times to ALL enemies."
+    ]
+  },
+  "${modID}:ArcMineEffect": {
+    "NAME": "Arc mine",
+    "DESCRIPTIONS": [
+      "At the end of your turn, deal #b",
+      " damage to one enemy and apply #b",
+      " Weak to it."
     ]
   }
 }
