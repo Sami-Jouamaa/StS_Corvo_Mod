@@ -167,7 +167,6 @@ public class CorvoCharacter extends CustomPlayer {
         retVal.add(PistolShot.ID);
 
         // To test new cards
-        retVal.add(Springrazor.ID);
         retVal.add(ArcMine.ID);
         return retVal;
     }

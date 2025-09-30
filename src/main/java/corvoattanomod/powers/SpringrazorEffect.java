@@ -5,6 +5,7 @@ import com.megacrit.cardcrawl.actions.animations.VFXAction;
 import com.megacrit.cardcrawl.actions.common.ApplyPowerAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
 import com.megacrit.cardcrawl.actions.common.ReducePowerAction;
+import com.megacrit.cardcrawl.actions.common.RemoveSpecificPowerAction;
 import com.megacrit.cardcrawl.actions.utility.SFXAction;
 import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
@@ -46,7 +47,6 @@ public class SpringrazorEffect extends BasePower {
     public void atStartOfTurnPostDraw()
     {
         flash();
-        addToBot(new ReducePowerAction(this.owner, this.owner, "SpringrazorEffect", 1));
         int nbFearToApply = 0;
 
         for (int i = 0; i < dmgRepeat; i++)
@@ -64,9 +64,10 @@ public class SpringrazorEffect extends BasePower {
             addToBot(new VFXAction(this.owner, new IntimidateEffect(AbstractDungeon.player.hb.cX, AbstractDungeon.player.hb.cY), 1.0F));
             for (AbstractMonster mo : (AbstractDungeon.getCurrRoom()).monsters.monsters)
             {
-                addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)mo, (AbstractCreature)this.owner, (AbstractPower)new WeakPower((AbstractCreature)mo, 3, false), 3, true, AbstractGameAction.AttackEffect.NONE));
-                addToBot((AbstractGameAction)new ApplyPowerAction((AbstractCreature)mo, (AbstractCreature)this.owner, (AbstractPower)new VulnerablePower((AbstractCreature)mo, 3, false), 3, true, AbstractGameAction.AttackEffect.NONE));
+                addToBot(new ApplyPowerAction(mo, this.owner, new WeakPower(mo, 3, false), 3, true, AbstractGameAction.AttackEffect.NONE));
+                addToBot(new ApplyPowerAction(mo, this.owner, new VulnerablePower(mo, 3, false), 3, true, AbstractGameAction.AttackEffect.NONE));
             }
         }
+        addToBot(new RemoveSpecificPowerAction(owner, owner, POWER_ID));
     }
 }

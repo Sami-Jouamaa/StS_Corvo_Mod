@@ -29,9 +29,17 @@
   "${modID}:ArcMineEffect": {
     "NAME": "Arc mine",
     "DESCRIPTIONS": [
-      "At the end of your turn, deal #b",
+      "At the start of next turn, deal #b",
       " damage to one enemy and apply #b",
       " Weak to it."
+    ]
+  },
+  "${modID}:ChainingArcMineEffect": {
+    "NAME": "Chaining arc mine",
+    "DESCRIPTIONS": [
+      "At the start of next turn, deal #b",
+      " damage to ALL enemies and apply #b",
+      " Weak to them"
     ]
   }
 }

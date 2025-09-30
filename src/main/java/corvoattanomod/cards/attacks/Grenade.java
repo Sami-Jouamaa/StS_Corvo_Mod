@@ -2,6 +2,7 @@ package corvoattanomod.cards.attacks;
 
 import com.megacrit.cardcrawl.actions.AbstractGameAction;
 import com.megacrit.cardcrawl.actions.common.DamageAllEnemiesAction;
+import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.characters.AbstractPlayer;
 import com.megacrit.cardcrawl.monsters.AbstractMonster;
 import corvoattanomod.cards.BaseCard;
@@ -37,7 +38,6 @@ public class Grenade extends BaseCard {
         {
             damageToDeal = (int)Math.round(1.5*damageToDeal);
         }
-
-        addToBot(new DamageAllEnemiesAction(p, damageToDeal, this.damageTypeForTurn, AbstractGameAction.AttackEffect.FIRE));
+        addToBot(new DamageAllEnemiesAction(p, damageToDeal, DamageInfo.DamageType.NORMAL, AbstractGameAction.AttackEffect.FIRE));
     }
 }

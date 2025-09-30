@@ -159,10 +159,14 @@
   },
   "${modID}:Clairvoyance": {
     "NAME": "Clairvoyance",
-    "DESCRIPTION": "Reveal the target's intent on its next turn."
+    "DESCRIPTION": "Retain NL Reveal the target's intent on its next turn. NL Exhaust"
   },
   "${modID}:ArcMine": {
     "NAME": "Arc mine",
     "DESCRIPTION": "Next turn, deal !D! damage and apply !M! Weak to an enemy."
+  },
+  "${modID}:ChainingArcMine": {
+    "NAME": "Chaining arc mine",
+    "DESCRIPTION": "Next turn, deal !D! damage and apply !M! Weak to ALL enemies."
   }
 }
