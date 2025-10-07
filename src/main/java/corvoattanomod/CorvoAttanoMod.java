@@ -2,11 +2,15 @@ package corvoattanomod;
 
 import basemod.AutoAdd;
 import basemod.BaseMod;
+import basemod.eventUtil.AddEventParams;
+import basemod.eventUtil.EventUtils;
 import basemod.interfaces.*;
 import com.badlogic.gdx.utils.compression.lzma.Base;
+import com.megacrit.cardcrawl.dungeons.Exordium;
 import com.megacrit.cardcrawl.unlock.UnlockTracker;
 import corvoattanomod.cards.BaseCard;
 import corvoattanomod.character.CorvoCharacter;
+import corvoattanomod.events.GalvaniApartmentPt1;
 import corvoattanomod.relics.BaseRelic;
 import corvoattanomod.util.GeneralUtils;
 import corvoattanomod.util.KeywordInfo;
@@ -73,6 +77,12 @@ public class CorvoAttanoMod implements
         //If you want to set up a config panel, that will be done here.
         //You can find information about this on the BaseMod wiki page "Mod Config and Panel".
         BaseMod.registerModBadge(badgeTexture, info.Name, GeneralUtils.arrToString(info.Authors), info.Description, null);
+
+        BaseMod.addEvent(new AddEventParams.Builder(GalvaniApartmentPt1.ID, GalvaniApartmentPt1.class)
+                .dungeonID(Exordium.ID)
+                .playerClass(CorvoCharacter.Meta.Corvo_Character)
+                .eventType(EventUtils.EventType.NORMAL)
+                .create());
     }
 
     /*----------Localization----------*/

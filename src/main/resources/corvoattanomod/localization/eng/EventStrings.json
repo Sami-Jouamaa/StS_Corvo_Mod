@@ -17,5 +17,18 @@
       "[Leave]",
       "Select card to remove. (You can also stick extra text like this in here.)"
     ]
-  }
+  },
+  "${modID}:GalvaniApartment1": {
+  "NAME": "Dr Galvani's Apartment",
+  "DESCRIPTIONS": [
+    "The apartment's third floor has some coins and precious objects laying around.",
+    "A guard can be heard climbing the stairs. He's almost at the door.",
+    "The guard's body is laying on the floor, no one else has made any sound indicating they're alert."
+  ],
+  "OPTIONS": [
+    "[Take] Gain 60 gold.",
+    "[Stay] Fight against a City Watch guard for a card reward and 25 gold.",
+    "[Leave]"
+  ]
+}
 }

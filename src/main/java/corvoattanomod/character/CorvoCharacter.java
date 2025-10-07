@@ -167,7 +167,7 @@ public class CorvoCharacter extends CustomPlayer {
         retVal.add(PistolShot.ID);
 
         // To test new cards
-        retVal.add(ArcMine.ID);
+
         return retVal;
     }
 
@@ -184,7 +184,7 @@ public class CorvoCharacter extends CustomPlayer {
     public AbstractCard getStartCardForEvent() {
         //This card is used for the Gremlin card matching game.
         //It should be a non-strike non-defend starter card, but it doesn't have to be.
-        return new Strike_Red();
+        return new DropAssassination();
     }
 
     /*- Below this is methods that you should *probably* adjust, but don't have to. -*/
