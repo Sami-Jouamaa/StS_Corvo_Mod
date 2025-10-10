@@ -168,5 +168,9 @@
   "${modID}:ChainingArcMine": {
     "NAME": "Chaining arc mine",
     "DESCRIPTION": "Next turn, deal !D! damage and apply !M! Weak to ALL enemies."
+  },
+  "${modID}:RunePower": {
+    "NAME": "Rune power",
+    "DESCRIPTION": "Gain !M! Strength and !M! Dexterity."
   }
 }

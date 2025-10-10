@@ -35,6 +35,7 @@ public class GalvaniApartmentPt1 extends PhasedEvent {
                 .addOption(OPTIONS[1], (i)->transitionKey("fight"))
                 .addOption(OPTIONS[2], (i)->openMap()));
 
+        // Will have to replace MonsterHelper.CULTIST_ENC by a City Watch guard encounter (needs to be implemented)
         registerPhase("fight", new CombatPhase(MonsterHelper.CULTIST_ENC)
                 .addRewards(true, (room)->room.addGoldToRewards(25))
                 .setNextKey("end"));
