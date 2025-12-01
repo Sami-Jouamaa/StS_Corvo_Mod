@@ -172,5 +172,9 @@
   "${modID}:RunePower": {
     "NAME": "Rune power",
     "DESCRIPTION": "Gain !M! Strength and !M! Dexterity."
+  },
+  "${modID}:ChargedUpArcMine": {
+    "NAME": "Charged up arc mine",
+    "DESCRIPTION": "Next turn, deal !D! damage !M! times and apply !M! Vulnerable on each hit to one enemy."
   }
 }
