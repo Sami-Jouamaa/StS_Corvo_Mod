@@ -8,9 +8,6 @@ import com.megacrit.cardcrawl.cards.DamageInfo;
 import com.megacrit.cardcrawl.core.AbstractCreature;
 import com.megacrit.cardcrawl.powers.AbstractPower;
 import com.megacrit.cardcrawl.powers.VulnerablePower;
-import com.megacrit.cardcrawl.powers.WeakPower;
-import corvoattanomod.cards.skills.ChainingArcMine;
-import corvoattanomod.cards.skills.ChargedUpArcMine;
 
 import static corvoattanomod.CorvoAttanoMod.makeID;
 

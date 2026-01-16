@@ -164,7 +164,7 @@ public class CorvoCharacter extends CustomPlayer {
         retVal.add(PistolShot.ID);
 
         // To test new cards
-        retVal.add(RunePower.ID);
+        retVal.add(HighGround.ID);
         return retVal;
     }
 

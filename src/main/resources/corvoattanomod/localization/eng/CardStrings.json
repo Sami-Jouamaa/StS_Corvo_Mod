@@ -176,5 +176,21 @@
   "${modID}:ChargedUpArcMine": {
     "NAME": "Charged up arc mine",
     "DESCRIPTION": "Next turn, deal !D! damage !M! times and apply !M! Vulnerable on each hit to one enemy."
+  },
+  "${modID}:StunMine": {
+    "NAME": "Stun mine",
+    "DESCRIPTION": "Next turn, apply !M! Vulnerable and !M! Weak to an enemy."
+  },
+  "${modID}:QuickStunMine": {
+    "NAME": "Quick stun mine",
+    "DESCRIPTION": "Apply !M! Vulnerable and !M! Weak to an enemy."
+  },
+  "${modID}:Windblast": {
+    "NAME": "Wind blast",
+    "DESCRIPTION": "Gore NL Deal !D! damage to ALL enemies and apply !M! Weak to ALL enemies."
+  },
+  "${modID}:Highground": {
+    "NAME": "High ground",
+    "DESCRIPTION": "Gain !M! Vigor."
   }
 }

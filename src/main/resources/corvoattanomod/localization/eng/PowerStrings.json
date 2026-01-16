@@ -50,5 +50,13 @@
       " times and apply #b",
       " stack of Vulnerable on each hit"
     ]
+  },
+  "${modID}:StunMine": {
+    "NAME": "Stun mine",
+    "DESCRIPTIONS": [
+      "At the start of next turn, apply #b",
+      " Vulnerable and #b",
+      " Weak to this enemy."
+    ]
   }
 }
