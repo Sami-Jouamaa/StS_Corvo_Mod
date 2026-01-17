@@ -51,12 +51,19 @@
       " stack of Vulnerable on each hit"
     ]
   },
-  "${modID}:StunMine": {
+  "${modID}:StunMineEffect": {
     "NAME": "Stun mine",
     "DESCRIPTIONS": [
       "At the start of next turn, apply #b",
       " Vulnerable and #b",
       " Weak to this enemy."
+    ]
+  },
+  "${modID}:DominoEffect": {
+    "NAME": "Domino",
+    "DESCRIPTIONS": [
+      "Whenever a marked enemy is attacked, deal #b",
+      " % of the damage to all other marked enemies."
     ]
   }
 }

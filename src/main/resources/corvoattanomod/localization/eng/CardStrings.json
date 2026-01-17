@@ -192,5 +192,9 @@
   "${modID}:Highground": {
     "NAME": "High ground",
     "DESCRIPTION": "Gain !M! Vigor."
+  },
+  "${modID}:Domino": {
+    "NAME": "Domino",
+    "DESCRIPTION": "Mark ALL enemies. Whenever you attack a marked enemy, deal !M! % of the damage dealt to all marked enemies."
   }
 }
