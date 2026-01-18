@@ -196,5 +196,9 @@
   "${modID}:Domino": {
     "NAME": "Domino",
     "DESCRIPTION": "Mark ALL enemies. Whenever you attack a marked enemy, deal !M! % of the damage dealt to all marked enemies."
+  },
+  "${modID}:TimeStop": {
+    "NAME": "Time stop",
+    "DESCRIPTION": "Take another turn after this one and gain !M! Intangible."
   }
 }
