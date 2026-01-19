@@ -200,5 +200,13 @@
   "${modID}:TimeStop": {
     "NAME": "Time stop",
     "DESCRIPTION": "Take another turn after this one and gain !M! Intangible."
+  },
+  "${modID}:SummonWolfhound": {
+    "NAME": "Summon wolfhound",
+    "DESCRIPTION": "Gore NL Gain !B! Block."
+  },
+  "${modID}:Parry": {
+    "NAME": "Parry",
+    "DESCRIPTION": "Gain !B! Block."
   }
 }
